@@ -26,6 +26,7 @@ def fill_template(dir):
             print(link, actual_link, alt_text)
             link["src"] = actual_link
             # print(link)
+            
 
 
     dir = dir.split('/')
