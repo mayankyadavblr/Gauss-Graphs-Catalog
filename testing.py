@@ -18,14 +18,23 @@ def fill_template(dir):
         filename = dir+'/'+filename
         links += [filename]
         # print(filename)
+        # print(links)
 
     for paragraph in soup.find_all('p'):
         for link in paragraph.find_all('img'):
             alt_text = link["alt"].split()[0]
             actual_link = [x for x in links if alt_text in x ]
-            print(link, actual_link, alt_text)
+            # print(link, actual_link, alt_text)
             link["src"] = actual_link
+            print(actual_link)
             # print(link)
+        text = paragraph.text
+        if "Number of words" in text:
+            actual_file = [x for x in links if "number_of_words" in x][0]
+            with open(actual_file, 'r') as f:
+                number_of_words = f.readline()
+            paragraph.text += number_of_words
+
             
 
 

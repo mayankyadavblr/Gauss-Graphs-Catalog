@@ -2,9 +2,6 @@ import bs4
 from bs4 import BeautifulSoup
 import os
 
-
-
-
 master = './'
 all_files = os.listdir(master)
 all_files = [x for x in all_files if x.split('.')[-1] == 'html']
