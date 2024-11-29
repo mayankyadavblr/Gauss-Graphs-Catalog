@@ -3,13 +3,13 @@ from bs4 import BeautifulSoup
 import os
 
 
-with open('template.html', 'rb') as f:
-    html_doc = f.read()
-    soup = BeautifulSoup(html_doc, 'html.parser')
 
 # print(soup.prettify())
 def fill_template(dir):
     # directory = os.fsencode(dir)
+    with open('template.html', 'rb') as f:
+        html_doc = f.read()
+        soup = BeautifulSoup(html_doc, 'html.parser')
     
     links = []
     for file in os.listdir(dir):    
@@ -28,12 +28,21 @@ def fill_template(dir):
             link["src"] = actual_link
             print(actual_link)
             # print(link)
-        text = paragraph.text
+        text = paragraph.get_text()
         if "Number of words" in text:
+            print(text)
             actual_file = [x for x in links if "number_of_words" in x][0]
             with open(actual_file, 'r') as f:
                 number_of_words = f.readline()
-            paragraph.text += number_of_words
+            paragraph.string = text + number_of_words
+            print(paragraph.string)
+        elif "Labels of bags" in text:
+            print(text)
+            actual_file = [x for x in links if "number_of_words" in x][0]
+            with open(actual_file, 'r') as f:
+                number_of_words = f.readline()
+            paragraph.string = text + number_of_words
+            print(paragraph.string)
 
             
 
@@ -47,6 +56,6 @@ master = "./order"
 for dir in os.listdir(master):
     subfolder = master + '/' + dir
     for graph in os.listdir(subfolder):
-        print(graph)
         graph = subfolder + '/' + graph
+        print(graph)
         fill_template(graph)
