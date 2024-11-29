@@ -1,1 +1,2 @@
-Poly(64*x, x, domain='ZZ')[0.]
+Poly(64*x, x, domain='ZZ')
+[0.]
