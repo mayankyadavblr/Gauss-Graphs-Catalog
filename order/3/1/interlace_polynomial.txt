@@ -1,1 +1,2 @@
-Poly(4*x, x, domain='ZZ')[0.]
+Poly(4*x, x, domain='ZZ')
+[0.]

@@ -2,6 +2,8 @@ import bs4
 from bs4 import BeautifulSoup
 import os
 
+
+
 # print(soup.prettify())
 def fill_template(dir):
     # directory = os.fsencode(dir)
@@ -34,12 +36,12 @@ def fill_template(dir):
                 number_of_words = f.readline()
             paragraph.string = text + number_of_words
             print(paragraph.string)
-        elif "Labels of bags" in text:
+        elif "Labels of the bags" in text:
             print(text)
-            actual_file = [x for x in links if "number_of_words" in x][0]
+            actual_file = [x for x in links if "labels_of_bag" in x][0]
             with open(actual_file, 'r') as f:
-                number_of_words = f.readline()
-            paragraph.string = text + number_of_words
+                labels = f.readline()
+            paragraph.string = text + labels
             print(paragraph.string)
 
             
