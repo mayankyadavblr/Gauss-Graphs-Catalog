@@ -2,8 +2,6 @@ import bs4
 from bs4 import BeautifulSoup
 import os
 
-
-
 # print(soup.prettify())
 def fill_template(dir):
     # directory = os.fsencode(dir)
