@@ -3,8 +3,6 @@ from bs4 import BeautifulSoup
 import os
 
 
-
-# print(soup.prettify())
 def fill_template(dir):
     # directory = os.fsencode(dir)
     with open('template.html', 'rb') as f:
@@ -30,19 +28,19 @@ def fill_template(dir):
             # print(link)
         text = paragraph.get_text()
         if "Number of words" in text:
-            print(text)
+            # print(text)
             actual_file = [x for x in links if "number_of_words" in x][0]
             with open(actual_file, 'r') as f:
                 number_of_words = f.readline()
             paragraph.string = text + number_of_words
-            print(paragraph.string)
+            # print(paragraph.string)
         elif "Labels of the bags" in text:
-            print(text)
+            # print(text)
             actual_file = [x for x in links if "labels_of_bag" in x][0]
             with open(actual_file, 'r') as f:
                 labels = f.readline()
             paragraph.string = text + labels
-            print(paragraph.string)
+            # print(paragraph.string)
 
             
 
