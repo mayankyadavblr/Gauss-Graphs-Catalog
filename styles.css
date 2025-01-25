@@ -2,20 +2,6 @@
    box-sizing: border-box; 
 }
 
-.main-info div {
-    flex: 1 1 auto;
-    border: 2px solid black;
-    padding: 5px;
-    background-color: lightgray;
-    border-radius: 4px;
-    margin: 5px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .decompositions {
     display: flex;
 }
@@ -23,6 +9,13 @@
 .navigate-buttons {
     display: flex;
     justify-content: flex-start;
+}
+
+img {
+    max-width: 100%;
+    border: 1px solid black;
+    width: 350px;
+    height: auto;
 }
 
 .navigate-buttons a {
@@ -41,12 +34,12 @@
 	border-radius: 4px;
 }
 
-.decompositions div {
+.main-info div {
     flex: 1 1 auto;
     border: 2px solid black;
-    border-radius: 4px;
     padding: 5px;
     background-color: lightgray;
+    border-radius: 4px;
     margin: 5px;
 
     display: flex;
@@ -55,7 +48,16 @@
     align-items: center;
 }
 
-img {
-    max-width: 100%;
-    border: 1px solid black;
+.decompositions div {
+    flex: 1 1 auto;
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 5px;
+    background-color: lightgoldenrodyellow;
+    margin: 5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
