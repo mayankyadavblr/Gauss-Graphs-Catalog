@@ -8,6 +8,8 @@ def fill_template(dir):
     with open('template.html', 'rb') as f:
         html_doc = f.read()
         soup = BeautifulSoup(html_doc, 'html.parser')
+
+    rel_dir = '.'+dir[12:]
     '''    
     links = []
     for file in os.listdir(dir):    
@@ -20,7 +22,7 @@ def fill_template(dir):
     
     main_info = soup.find(class_ = 'original-graph')
     main_graph_img = main_info.find("img")
-    main_graph_img["src"] = dir + '/' + "original.png"
+    main_graph_img["src"] = rel_dir + '/' + "original.png"
 
     main_graph_words = main_info.find("p", class_="no-of-words")
     with open(dir + '/' + 'number_of_words.txt', 'r') as f:
@@ -29,11 +31,11 @@ def fill_template(dir):
 
     modular_decomp = soup.find(class_="modular-decomp")
     modular_decomp_img = modular_decomp.find("img")
-    modular_decomp_img["src"] = dir + '/' + 'modular_decomposition.png'
+    modular_decomp_img["src"] = rel_dir + '/' + 'modular_decomposition.png'
 
     split_decomp = soup.find(class_="split-decomp")
     split_decomp_img = split_decomp.find("img")
-    split_decomp_img["src"] = dir + '/' + 'split_decomposition.png'
+    split_decomp_img["src"] = rel_dir + '/' + 'split_decomp.png'
     with open(dir + '/' + 'labels_of_bags.txt', 'r') as f:
         labels = f.readline()
     split_decomp_labels = split_decomp.find("p", class_="labels-split-decomp")
@@ -41,7 +43,7 @@ def fill_template(dir):
 
     interlace_one = soup.find(class_="Interlace-one-var")
     interlace_one_img = interlace_one.find("img")
-    interlace_one_img["src"] = dir + '/' + 'interlace_roots.png'
+    interlace_one_img["src"] = rel_dir + '/' + 'interlace_roots.png'
 
     with open(dir + '/' + 'interlace_polynomial.txt', 'rt') as f:
         poly = f.readline()
@@ -53,7 +55,7 @@ def fill_template(dir):
 
     interlace_two = soup.find(class_="Interlace-two-var")
     interlace_two_img = interlace_two.find("img")
-    interlace_two_img["src"] = dir + '/' + 'two_interlace_polynomial.png'
+    interlace_two_img["src"] = rel_dir + '/' + 'two_interlace_polynomial.png'
 
     with open(dir + '/' + 'interlace_poly_two_var.txt', 'rt') as f:
         poly = f.readline()
@@ -63,7 +65,7 @@ def fill_template(dir):
 
     characteristic_poly = soup.find(class_="characteristic")
     characteristic_img = characteristic_poly.find("img")
-    characteristic_img["src"] = dir + '/' + 'characteristic_roots.png'
+    characteristic_img["src"] = rel_dir + '/' + 'characteristic_roots.png'
 
     with open(dir + '/' + 'characteristic_polynomial.txt', 'rt') as f:
         poly = f.readline()
@@ -76,7 +78,7 @@ def fill_template(dir):
 
     chromatic = soup.find(class_="chromatic")
     chromatic_img = chromatic.find("img")
-    chromatic_img["src"] = dir + '/' + 'chromatic_roots.png'
+    chromatic_img["src"] = rel_dir + '/' + 'chromatic_roots.png'
 
     with open(dir + '/' + 'chromatic_polynomial.txt', 'rt') as f:
         poly = f.readline()
