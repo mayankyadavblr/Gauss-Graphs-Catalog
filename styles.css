@@ -11,9 +11,17 @@
     justify-content: flex-start;
 }
 
+.Interlace-polynomials {
+    display: flex;
+}
+
+.basic-polynomials {
+    display: flex;
+}
+
 img {
     max-width: 100%;
-    border: 1px solid black;
+    border: 2px solid black;
     width: 350px;
     height: auto;
 }
@@ -60,4 +68,46 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.Interlace-polynomials div {
+    
+    flex: 1 1 auto;
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 5px;
+    background-color: lightgoldenrodyellow;
+    margin: 5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Interlace-polynomials div div {
+    border: none;
+    max-width: 500px;
+    color: black;
+}
+
+.basic-polynomials div {
+    
+    flex: 1 1 auto;
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 5px;
+    background-color: lightgoldenrodyellow;
+    margin: 5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.basic-polynomials div div {
+    border: none;
+    max-width: 500px;
+    color: black;
 }
