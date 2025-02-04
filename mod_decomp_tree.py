@@ -66,8 +66,7 @@ def make_compatible(txt):
 def main():
     home = "./html_files/order"
     for size in os.listdir(home):
-        if size != '7':
-            continue
+        
         home1 = home + "/" + size
         for graph in os.listdir(home1):
             filepath = home1 + "/" + graph + "/modular_decomposition.txt"

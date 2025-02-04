@@ -1,28 +1,86 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Gauss Catalog</title>
+<link href="styles.css" rel="stylesheet"/>
+</head>
 <body>
 <h1>Gauss Graph</h1>
+<div class="navigate-buttons">
+<a href="" rel="noopener noreferrer" target="_blank">Prev</a>
+<a href="index.html" rel="noopener noreferrer" target="_blank">Next</a>
+</div>
+<div class="main-info">
+<div class="original-graph">
 <h2>Graph</h2>
-<p><img alt="original graph" src="./order/7/2/original.png"/></p>
-<p>Number of words associated with this graph: 42</p>
-<h2>Split Decomposition</h2>
-<p><img alt="split decomposition of the graph" src="./order/7/2/split_decomp.png"/></p>
-<p>Labels of the bags: {7: 'star2', 8: 'complete3', 9: 'star2', 10: 'star3'}</p>
+<p><img alt="original graph" src="./html_files/order/7/2/original.png"/></p>
+<p class="no-of-words">Number of words associated with this graph: 42</p>
+</div>
+</div>
+<h2>Decompositions</h2>
+<div class="decompositions">
+<div class="modular-decomp">
 <h2>Modular Decomposition</h2>
-<p>Decomposition as a tree: </p>
-<!-- <h2>Characteristic Polynomial</h2>
-        <p>
-            polynomial:
-            <br>
-            factorization:
-            <br>
-            roots: 
-            <br>
-            <img src="./order/7/1/characteristic_roots.png" alt="characteristic roots of the graph" />
-        </p>
-    
-    <h2>Zeta 1 Polynomial</h2>
+<p><img alt="modular decomposition of the graph" src="./html_files/order/7/1/modular_decomposition.png"/></p>
+</div>
+<div class="split-decomp">
+<h2>Split Decomposition</h2>
+<p><img alt="split decomposition of the graph" src="./html_files/order/7/1/split_decomp.png"/></p>
+<p>Labels of the bags: </p>
+</div>
+</div>
+<h2>Interlace Poynomials</h2>
+<div class="Interlace-polynomials">
+<div class="Interlace-one-var">
+<h2>Interlace Polynomial</h2>
+<p>
+<div class="one-var-poly">Polynomial: Poly(9*x**3 + 12*x**2 + 4*x, x, domain='ZZ')</div>
+<br/>
+                    Roots: 
+                    <br/>
+<img alt="interlace roots of the graph" src="./html_files/order/7/1/interlace_roots.png"/>
+</p>
+</div>
+<div class="Interlace-two-var">
+<h2>Interlace Polynomial Two Var</h2>
+<p>
+<div class="two-var-poly">Polynomial: Poly(x**4*y**3 + 7*x**4*y**2 + 16*x**4*y + 12*x**4 + 5*x**2*y**3 + 23*x**2*y**2 + 32*x**2*y + 12*x**2 + 3*y**3 + 9*y**2 + 7*y + 1, x, y, domain='ZZ')</div>
+<br/>
+                    Coefficients heat map:
+                    <br/>
+<img alt="interlace roots of the graph" src="./html_files/order/7/1/two_interlace_polynomial.png"/>
+</p>
+</div>
+</div>
+<h2>Other Polynomials</h2>
+<div class="basic-polynomials">
+<div class="characteristic">
+<h2>Characteristic Polynomial</h2>
+<p>
+<div class="characteristic-poly">polynomial: x**7 - 24*x**6 + 232*x**5 - 1152*x**4 + 3084*x**3 - 4192*x**2 + 2240*x</div>
+<br/>
+<div class="characteristic-poly-factors">factorization: x*(x - 4)**2*(x**2 - 8*x + 10)*(x**2 - 8*x + 14)</div>
+<br/>
+                    roots: 
+                    <br/>
+<img alt="characteristic roots of the graph" src="./html_files/order/7/1/characteristic_roots.png"/>
+</p>
+</div>
+<div class="chromatic">
+<h2>Chromatic Polynomial</h2>
+<p>
+<div class="chromatic-poly">polynomial: x^7 - 12*x^6 + 62*x^5 - 173*x^4 + 271*x^3 - 223*x^2 + 74*x</div>
+<img alt="Chromatic roots of the graph" src="./html_files/order/7/1/chromatic_roots.png"/>
+</p>
+</div>
+</div>
+<div class="navigate-buttons">
+<a href="" rel="noopener noreferrer" target="_blank">Prev</a>
+<a href="index.html" rel="noopener noreferrer" target="_blank">Next</a>
+</div>
+<!-- <h2>Zeta 1 Polynomial</h2>
         <p>
             polynomial:
             <br>
@@ -43,30 +101,5 @@
             <br>
             <img src="./order/7/1/zeta2_roots.png" alt="zeta 2 roots of the graph" />
         </p> -->
-<h2>Interlace Polynomial</h2>
-<p>
-            polynomial:
-            <br/>
-            factorization:
-            <br/>
-            roots: 
-            <br/>
-<img alt="interlace roots of the graph" src="./order/7/2/two_interlace_polynomial.png ./order/7/2/interlace_polynomial.txt ./order/7/2/interlace_roots.png ./order/7/2/interlace_poly_two_var.txt"/>
-</p>
-<!-- <h2>Chromatic Polynomial</h2>
-        <p>
-            polynomial:
-            <br>
-            factorization:
-            <br>
-            roots: 
-            <br>
-            <img src="./order/7/1/chromatic_roots.png" alt="Chromatic roots of the graph" />
-        </p> -->
-<p>
-<a href="7_1.html">Prev</a>
-<br/>
-<a href="7_3.html">Next</a>
-</p>
 </body>
 </html>

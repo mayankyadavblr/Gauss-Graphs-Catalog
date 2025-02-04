@@ -8,7 +8,7 @@ def fill_template(dir):
     with open('template.html', 'rb') as f:
         html_doc = f.read()
         soup = BeautifulSoup(html_doc, 'html.parser')
-    
+    '''    
     links = []
     for file in os.listdir(dir):    
         filename = os.fsencode(file)
@@ -16,9 +16,30 @@ def fill_template(dir):
         filename = dir+'/'+filename
         links += [filename]
         # print(filename)
-        # print(links)
+        # print(links)'''
+    
+    main_info = soup.find(class_ = 'original-graph')
+    main_graph_img = main_info.find("img")
+    main_graph_img["src"] = dir + '/' + "original.png"
 
-    for paragraph in soup.find_all('p'):
+    main_graph_words = main_info.find("p", class_="no-of-words")
+    with open(dir + '/' + 'number_of_words.txt', 'r') as f:
+        no_of_words = f.readline()
+    main_graph_words.string += no_of_words
+
+    modular_decomp = soup.find(class_="modular-decomp")
+    modular_decomp_img = modular_decomp.find("img")
+    modular_decomp_img["src"] = dir + '/' + 'modular_decomposition.png'
+
+    split_decomp = soup.find(class_="split-decomp")
+    split_decomp_img = split_decomp.find("img")
+    split_decomp_img["src"] = dir + '/' + 'split_decomposition.png'
+    with open(dir + '/' + 'labels_of_bags.txt', 'r') as f:
+        labels = f.readline()
+    split_decomp_labels = split_decomp.find("p", class_="labels-split-decomp")
+    split_decomp_labels.string += labels
+
+    '''for paragraph in soup.find_all('p'):
         for link in paragraph.find_all('img'):
             alt_text = link["alt"].split()[0]
             actual_link = [x for x in links if alt_text in x ]
@@ -40,17 +61,17 @@ def fill_template(dir):
             with open(actual_file, 'r') as f:
                 labels = f.readline()
             paragraph.string = text + labels
-            # print(paragraph.string)
+            # print(paragraph.string)'''
 
             
 
 
     dir = dir.split('/')
     name = dir[-2] + "_" + dir[-1] + ".html"
-    with open(name, 'w') as f2:
+    with open("./html_files/"+name, 'w') as f2:
         f2.write(str(soup))
 
-master = "./order"
+master = "./html_files/order"
 for dir in os.listdir(master):
     subfolder = master + '/' + dir
     for graph in os.listdir(subfolder):
