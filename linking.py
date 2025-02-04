@@ -18,21 +18,27 @@ for i in range(0, total_length):
     with open(site, 'rb') as f:
         html_doc = f.read()
         soup = BeautifulSoup(html_doc, 'html.parser')
-    pointers = soup.find_all('a')
+    pointer_prev = soup.find_all(class_='previous-button')
+    pointer_next = soup.find_all(class_="next-button")
     
     # Backward linking (corner case of first graph)
     if i == 0:
-        pointers[0]['href'] = "../index.html"
-        pointers[0]['target'] = "homepage"
+        for p in pointer_prev:    
+            p['href'] = "../index.html"
+            p['target'] = "homepage"
     else:
-        pointers[0]['href'] = all_files[i-1]
+        pointer_prev[0]['href'] = all_files[i-1]
+        pointer_prev[1]['href'] = all_files[i-1]
 
     # Forward linking (corner case of last graph)
     if i == len(all_files) - 1:
-        pointers[1]['href'] = "../index.html"
-        pointers[1]['target'] = "homepage"
+        for p in pointer_next:
+            p['href'] = "../index.html"
+            p['target'] = "homepage"
     else:
-        pointers[1]['href'] = all_files[i+1]
+        print(pointer_next)
+        pointer_next[0]['href'] = all_files[i+1]
+        pointer_next[1]['href'] = all_files[i+1]
     
     # Write to html file and close
     with open(site, 'w') as f1:
