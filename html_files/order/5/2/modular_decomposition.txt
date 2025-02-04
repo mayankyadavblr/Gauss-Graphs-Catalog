@@ -1,1 +1,1 @@
-SERIES [NORMAL [4], NORMAL [3], NORMAL [2], NORMAL [1], NORMAL [0]]
+(SERIES, [4, 3, 2, 1, 0])

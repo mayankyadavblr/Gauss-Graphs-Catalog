@@ -1,0 +1,1 @@
+(SERIES, [5, 1, (PARALLEL, [0, (SERIES, [8, 7, 4, 3, 2]), 6])])

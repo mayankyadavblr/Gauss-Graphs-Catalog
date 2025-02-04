@@ -1,0 +1,2 @@
+Poly(256*x, x, domain='ZZ')
+[0.]

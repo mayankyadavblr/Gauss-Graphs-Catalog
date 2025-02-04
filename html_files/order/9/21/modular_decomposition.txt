@@ -1,0 +1,1 @@
+(PRIME, [(PARALLEL, [1, 5]), (PARALLEL, [0, 4]), (SERIES, [(PARALLEL, [3, 7, 8]), 2]), 6])

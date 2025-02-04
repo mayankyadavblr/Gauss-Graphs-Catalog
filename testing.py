@@ -39,33 +39,52 @@ def fill_template(dir):
     split_decomp_labels = split_decomp.find("p", class_="labels-split-decomp")
     split_decomp_labels.string += labels
 
-    '''for paragraph in soup.find_all('p'):
-        for link in paragraph.find_all('img'):
-            alt_text = link["alt"].split()[0]
-            actual_link = [x for x in links if alt_text in x ]
-            # print(link, actual_link, alt_text)
-            link["src"] = actual_link
-            print(actual_link)
-            # print(link)
-        text = paragraph.get_text()
-        if "Number of words" in text:
-            # print(text)
-            actual_file = [x for x in links if "number_of_words" in x][0]
-            with open(actual_file, 'r') as f:
-                number_of_words = f.readline()
-            paragraph.string = text + number_of_words
-            # print(paragraph.string)
-        elif "Labels of the bags" in text:
-            # print(text)
-            actual_file = [x for x in links if "labels_of_bag" in x][0]
-            with open(actual_file, 'r') as f:
-                labels = f.readline()
-            paragraph.string = text + labels
-            # print(paragraph.string)'''
+    interlace_one = soup.find(class_="Interlace-one-var")
+    interlace_one_img = interlace_one.find("img")
+    interlace_one_img["src"] = dir + '/' + 'interlace_roots.png'
 
-            
+    with open(dir + '/' + 'interlace_polynomial.txt', 'rt') as f:
+        poly = f.readline()
+        roots = f.readline()
+    interlace_one_poly = interlace_one.find(class_="one-var-poly")
+    interlace_one_poly.string += poly
+    interlace_one_roots = interlace_one.find(class_="one-var-roots")
+    interlace_one_roots.string += roots
 
+    interlace_two = soup.find(class_="Interlace-two-var")
+    interlace_two_img = interlace_two.find("img")
+    interlace_two_img["src"] = dir + '/' + 'two_interlace_polynomial.png'
 
+    with open(dir + '/' + 'interlace_poly_two_var.txt', 'rt') as f:
+        poly = f.readline()
+
+    interlace_two_poly = interlace_two.find(class_="two-var-poly")
+    interlace_two_poly.string += poly
+
+    characteristic_poly = soup.find(class_="characteristic")
+    characteristic_img = characteristic_poly.find("img")
+    characteristic_img["src"] = dir + '/' + 'characteristic_roots.png'
+
+    with open(dir + '/' + 'characteristic_polynomial.txt', 'rt') as f:
+        poly = f.readline()
+    with open(dir + '/' + 'characteristic_polynomial_factored.txt', 'rt') as f:
+        factored = f.readline()
+    characteristic_poly_string = characteristic_poly.find(class_="characteristic-poly")
+    characteristic_poly_string.string += poly
+    interlace_one_roots = characteristic_poly.find(class_="characteristic-poly-factors")
+    interlace_one_roots.string += factored
+
+    chromatic = soup.find(class_="chromatic")
+    chromatic_img = chromatic.find("img")
+    chromatic_img["src"] = dir + '/' + 'chromatic_roots.png'
+
+    with open(dir + '/' + 'chromatic_polynomial.txt', 'rt') as f:
+        poly = f.readline()
+
+    chromatic_poly = chromatic.find(class_="chromatic-poly")
+    chromatic_poly.string += poly
+
+    
     dir = dir.split('/')
     name = dir[-2] + "_" + dir[-1] + ".html"
     with open("./html_files/"+name, 'w') as f2:

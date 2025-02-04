@@ -1,0 +1,1 @@
+{9: 'star2', 10: 'star2', 11: 'complete3', 12: 'star2', 14: 'star3', 15: 'star2'}
