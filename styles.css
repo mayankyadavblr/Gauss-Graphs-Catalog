@@ -57,7 +57,7 @@ img {
 }
 
 .decompositions div {
-    flex: 1 1 auto;
+    width: 50%;
     border: 2px solid black;
     border-radius: 4px;
     padding: 5px;
